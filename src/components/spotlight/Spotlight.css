@@ -1,0 +1,154 @@
+.swiper {
+  width: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+}
+
+.button-prev,
+.button-next {
+  width: 36px;
+  height: 36px;
+  background-color: #1a1a1a;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.button-prev:hover,
+.button-next:hover {
+  background-color: #2a2a2a;
+}
+
+.button-prev::after,
+.button-next::after {
+  content: '';
+  width: 9px;
+  height: 9px;
+  border: 2px solid #ffffff;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.button-prev::after {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.button-next::after {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets {
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: auto !important;
+  display: flex !important;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease-in-out !important;
+  transform: scale(1) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffbade !important;
+  width: 24px !important;
+  border-radius: 12px !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 12px rgba(255, 186, 222, 0.6) !important;
+}
+
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Tablet and below - position dots at bottom */
+@media only screen and (max-width: 768px) {
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 2px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    display: flex !important;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row !important;
+    height: auto !important;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: 10;
+  }
+
+  .button-prev,
+  .button-next {
+    width: 32px;
+    height: 32px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 6px !important;
+    height: 6px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 18px !important;
+    border-radius: 9px !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 10px rgba(255, 186, 222, 0.7) !important;
+  }
+}
+
+/* Mobile - position dots at very bottom, below Watch Now button */
+@media only screen and (max-width: 480px) {
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 1px !important;
+    gap: 4px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .swiper-pagination-bullet {
+    width: 5px !important;
+    height: 5px !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    width: 14px !important;
+    border-radius: 7px !important;
+  }
+}

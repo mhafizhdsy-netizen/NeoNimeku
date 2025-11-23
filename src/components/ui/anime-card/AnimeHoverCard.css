@@ -1,0 +1,247 @@
+/* Anime Hover Card */
+.anime-hover-card {
+  width: 350px;
+  max-height: 500px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(233, 30, 99, 0.3),
+    0 0 60px rgba(0, 188, 212, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transform: scale(0.9) translateY(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
+  position: relative;
+}
+
+.anime-hover-card.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Background Image */
+.hover-card-bg {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.hover-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.hover-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0) 0%,
+    rgba(10, 10, 10, 0.5) 50%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+}
+
+/* Dots Pattern */
+.hover-card-dots {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.04) 0.5px, transparent 0.5px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.03) 0.5px, transparent 0.5px);
+  background-size: 12px 12px, 24px 24px;
+  background-position: 0 0, 6px 6px;
+  pointer-events: none;
+}
+
+/* Content */
+.hover-card-content {
+  padding: 1.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.hover-card-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.hover-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2));
+  border: 1px solid rgba(255, 193, 7, 0.4);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+/* Meta Info */
+.hover-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.meta-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.625rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+
+
+/* Episodes Info */
+.hover-card-episodes {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.episode-badge {
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.episode-badge.sub {
+  background: rgba(0, 188, 212, 0.2);
+  border: 1px solid rgba(0, 188, 212, 0.4);
+  color: #00bcd4;
+}
+
+.episode-badge.dub {
+  background: rgba(233, 30, 99, 0.2);
+  border: 1px solid rgba(233, 30, 99, 0.4);
+  color: #e91e63;
+}
+
+/* Action Button */
+.hover-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 12px rgba(233, 30, 99, 0.4),
+    0 0 20px rgba(233, 30, 99, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.hover-card-button:hover::before {
+  left: 100%;
+}
+
+.hover-card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 16px rgba(233, 30, 99, 0.5),
+    0 0 30px rgba(233, 30, 99, 0.3);
+}
+
+.hover-card-button:active {
+  transform: translateY(0);
+}
+
+/* Glow Effect */
+.hover-card-glow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(233, 30, 99, 0.5),
+    rgba(0, 188, 212, 0.5),
+    rgba(156, 39, 176, 0.5)
+  );
+  border-radius: 1rem;
+  opacity: 0.3;
+  filter: blur(15px);
+  z-index: -1;
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(15px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .anime-hover-card {
+    width: 320px;
+    max-height: 450px;
+  }
+
+  .hover-card-bg {
+    height: 150px;
+  }
+
+  .hover-card-content {
+    padding: 1rem;
+  }
+
+
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .anime-hover-card,
+  .hover-card-button,
+  .hover-card-glow {
+    animation: none;
+    transition: none;
+  }
+}

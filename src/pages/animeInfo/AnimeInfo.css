@@ -1,0 +1,88 @@
+/* Breathing Glow Effect for Cover Banner */
+.cover-breathing-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 40% 50%,
+    rgba(233, 30, 99, 0.08) 0%,
+    rgba(0, 188, 212, 0.06) 40%,
+    rgba(156, 39, 176, 0.04) 70%,
+    transparent 100%
+  );
+  animation: cover-breathing 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cover-banner:hover .cover-breathing-glow {
+  animation: cover-breathing-hover 3s ease-in-out infinite;
+}
+
+@keyframes cover-breathing {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes cover-breathing-hover {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.12);
+  }
+}
+
+/* Inner Border Glow for Cover */
+.cover-border-glow {
+  position: absolute;
+  inset: 2px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, 
+    rgba(233, 30, 99, 0.12), 
+    rgba(0, 188, 212, 0.12), 
+    rgba(255, 193, 7, 0.12),
+    rgba(156, 39, 176, 0.12)
+  ) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 4;
+  animation: cover-border-breathe 4s ease-in-out infinite;
+}
+
+.cover-banner:hover .cover-border-glow {
+  animation: cover-border-breathe-hover 3s ease-in-out infinite;
+}
+
+@keyframes cover-border-breathe {
+  0%, 100% {
+    opacity: 0.2;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.35;
+    filter: brightness(1.2);
+  }
+}
+
+@keyframes cover-border-breathe-hover {
+  0%, 100% {
+    opacity: 0.5;
+    filter: brightness(1.2);
+  }
+  50% {
+    opacity: 0.75;
+    filter: brightness(1.5);
+  }
+}

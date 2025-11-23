@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Apply font to all elements */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Heading font */
+h1, h2, h3, h4, h5, h6,
+.font-heading,
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif !important;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Language Toggle Animation */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(-5deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+}
+
+/* Dark theme styles - MAXIMUM CONTRAST */
+:root.dark {
+  color-scheme: dark;
+  color: rgba(250, 250, 250, 1);
+  background: #121212;
+}
+
+/* Light theme styles - MAXIMUM CONTRAST */
+:root.light {
+  color-scheme: light;
+  color: rgba(23, 23, 23, 1);
+  background: #FFFFFF;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+/* Hide default scrollbar completely */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #201f31;  /* Match the page background color */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #201f31;  /* Match the page background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 20px;
+  border: 2px solid #201f31;  /* Match the page background color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4d4d4d;
+}
+
+/* Hide scrollbar buttons */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #201f31;  /* Match the page background color */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 #201f31;  /* Match the page background color */
+}
+
+/* Hide default scrollbar for .scrollbar-visible class */
+.scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 #201f31;  /* Match the page background color */
+}
+
+.scrollbar-visible::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: #201f31;  /* Match the page background color */
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background-color: #201f31;  /* Match the page background color */
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background-color: #404040;
+  border-radius: 20px;
+  border: 2px solid #201f31;  /* Match the page background color */
+}
+
+/* Hide scrollbar buttons for .scrollbar-visible */
+.scrollbar-visible::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scrollbar-visible::-webkit-scrollbar-corner {
+  background-color: #201f31;  /* Match the page background color */
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #23222c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #65646a;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.is-visible {
+  opacity: 1;
+}
+@layer base {
+  /* Font Family */
+  * {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+  
+  /* Light Theme - MAXIMUM CONTRAST */
+  :root.light {
+    /* Backgrounds */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --surface: 0 0% 100%;
+    --surface-elevated: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    
+    /* Brand Colors */
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* UI Colors */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 25%;
+    --accent: 45 93% 47%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Semantic Colors */
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 100% 50%;
+    --warning-foreground: 0 0% 100%;
+    --error: 4 90% 58%;
+    --error-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 340 82% 52%;
+    
+    /* Charts */
+    --chart-1: 340 82% 52%;
+    --chart-2: 187 100% 42%;
+    --chart-3: 291 64% 42%;
+    --chart-4: 45 93% 47%;
+    --chart-5: 207 90% 54%;
+    
+    --radius: 0.75rem;
+  }
+  
+  /* Dark Theme - MAXIMUM CONTRAST */
+  :root.dark {
+    /* Backgrounds */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --surface: 0 0% 10%;
+    --surface-elevated: 0 0% 14%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Brand Colors */
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* UI Colors */
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 17%;
+    --accent-foreground: 0 0% 98%;
+    
+    /* Semantic Colors */
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 100% 50%;
+    --warning-foreground: 0 0% 100%;
+    --error: 4 90% 58%;
+    --error-foreground: 0 0% 100%;
+    
+    /* Borders & Inputs */
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 340 82% 52%;
+    
+    /* Charts */
+    --chart-1: 340 82% 52%;
+    --chart-2: 187 100% 42%;
+    --chart-3: 291 64% 42%;
+    --chart-4: 45 93% 47%;
+    --chart-5: 207 90% 54%;
+  }
+  
+  /* Default to dark theme if no class */
+  :root:not(.light):not(.dark) {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --surface: 0 0% 10%;
+    --surface-elevated: 0 0% 14%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 187 100% 42%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 17%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
+    --warning: 36 100% 50%;
+    --warning-foreground: 0 0% 100%;
+    --error: 4 90% 58%;
+    --error-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 340 82% 52%;
+    --chart-1: 340 82% 52%;
+    --chart-2: 187 100% 42%;
+    --chart-3: 291 64% 42%;
+    --chart-4: 45 93% 47%;
+    --chart-5: 207 90% 54%;
+  }
+}
+.dot {
+  width: 4px;
+  height: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  display: inline-block;
+}
+
+/* Modern Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hide scrollbar buttons */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.02);
+}
+
+/* Scrollbar visible class with modern styling */
+.scrollbar-visible {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.02);
+}
+
+.scrollbar-visible::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: transparent;
+}
+
+.scrollbar-visible::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.scrollbar-visible::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-visible::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.scrollbar-visible::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+/* Toast Animation */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}

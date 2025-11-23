@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a0a0a" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0a0a0a" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="NeoNime" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="/favicon.png" />
+    
+    <!-- Modern Splash Screen Styles -->
+    <style>
+      /* Splash Screen Styles */
+      #splash-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      #splash-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .splash-logo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 30px;
+        animation: logoFloat 3s ease-in-out infinite;
+        filter: drop-shadow(0 0 30px rgba(233, 30, 99, 0.6));
+      }
+      
+      @keyframes logoFloat {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      
+      .splash-title {
+        font-size: 48px;
+        font-weight: 800;
+        background: linear-gradient(135deg, #E91E63 0%, #F06292 50%, #E91E63 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+        animation: gradientShift 3s ease infinite;
+        font-family: 'Space Grotesk', sans-serif;
+        letter-spacing: -1px;
+      }
+      
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      .splash-subtitle {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 40px;
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      
+      .splash-loader {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(233, 30, 99, 0.1);
+        border-top: 4px solid #E91E63;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .splash-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      
+      .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: rgba(233, 30, 99, 0.6);
+        border-radius: 50%;
+        animation: particleFloat 4s ease-in-out infinite;
+      }
+      
+      @keyframes particleFloat {
+        0%, 100% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) translateX(50px);
+          opacity: 0;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        .splash-logo {
+          width: 100px;
+          height: 100px;
+        }
+        .splash-title {
+          font-size: 36px;
+        }
+        .splash-subtitle {
+          font-size: 14px;
+        }
+      }
+    </style>
+
+    <meta
+      name="description"
+      content="NeoNime is a Free anime streaming website which you can watch English Subbed and Dubbed Anime online. WATCH NOW!. Hianime, 9animetv, aniwatchtv"
+    />
+    <meta
+      name="keywords"
+      content="NeoNime, nime nemo, zenime, hianime to, aniwatch, zorox, zoro anime, zoro to, zoroxtv, watch anime online free, free watch anime, anime online to watch"
+    />
+    <meta name="author" content="NeoNime Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="rating" content="General" />
+    <meta name="language" content="English" />
+
+    <meta
+      property="og:title"
+      content="NeoNime | Watch Anime for Free Online"
+    />
+    <meta
+      property="og:description"
+      content="NeoNime to is a free no ads anime site to watch free anime. Online anime streaming at justanime with DUB, SUB in HD. Hianime, 9animetv, Zoro, s3taku,justanime."
+    />
+    <meta property="og:image" content="https://i.postimg.cc/kMYmHkPm/home.webp" />
+    <meta property="og:url" content="https://NeoNime.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="NeoNime" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="NeoNime | Free Anime Streaming Platform"
+    />
+    <meta
+      name="twitter:description"
+      content="Stream free English-subbed and dubbed anime online with no ads. Enjoy hassle-free viewing and daily updates on JustAnime!"
+    />
+    <!-- <meta name="twitter:image" content="https://i.postimg.cc/kMYmHkPm/home.webp" />
+    <meta name="twitter:site" content="@ZenimeOfficial" /> -->
+    <title>NeoNime | Free Anime Streaming Platform</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "JustAnime - Watch Anime Free",
+        "description": "JustAnime offers free streaming of English-subbed and dubbed anime series and movies. No account needed and no ads!",
+        "thumbnailUrl": "https://github.com/tejaspanchall/JustAnime/blob/main/public/home.PNG",
+        "uploadDate": "2024-11-08",
+        "contentUrl": "https://justanime.to",
+        "duration": "PT30M",
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": { "@type": "WatchAction" },
+          "userInteractionCount": 50000
+        },
+        "author": {
+          "@type": "Individual",
+          "name": "itzzzme",
+          "url": "https://justanime.to"
+        },
+        "publisher": {
+          "@type": "Individual",
+          "name": "itzzzme",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/tejaspanchall/JustAnime/blob/main/public/logo.png"
+          }
+        },
+        "potentialAction": {
+          "@type": "WatchAction",
+          "target": "https://justanime.to"
+        }
+      }
+    </script>
+
+    <link rel="canonical" href="https://NeoNime.vercel.app" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Modern Splash Screen -->
+    <div id="splash-screen">
+      <div class="splash-particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 0.5s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 3.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 4s;"></div>
+      </div>
+      <img src="/favicon.png" alt="NeoNime Logo" class="splash-logo" />
+      <h1 class="splash-title">NeoNime</h1>
+      <p class="splash-subtitle">Free Anime Streaming</p>
+      <div class="splash-loader"></div>
+    </div>
+    
+    <div id="root"></div>
+    
+    <script>
+      // Hide splash screen when app is loaded
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash-screen');
+          if (splash) {
+            splash.classList.add('fade-out');
+            setTimeout(() => {
+              splash.style.display = 'none';
+            }, 500);
+          }
+        }, 1500); // Show splash for at least 1.5 seconds
+      });
+    </script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+

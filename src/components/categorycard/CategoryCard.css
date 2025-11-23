@@ -1,0 +1,464 @@
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 50;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+}
+
+.group:hover .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(233, 30, 99, 0.15) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+.dot {
+  width: 2px;
+  height: 2px;
+  display: inline-block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0 6px;
+  position: relative;
+  top: -1px;
+}
+
+/* Modern Card Styles - Optimized for Desktop Performance */
+.category-card-container {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  border-radius: 16px;
+  overflow: visible;
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.category-card-container:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(233, 30, 99, 0.4);
+  z-index: 10;
+}
+
+/* Desktop-specific optimizations */
+@media (min-width: 1024px) {
+  .category-card-container:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
+/* Simplified Border Effect - Better Performance */
+.category-card-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #E91E63, #00BCD4, #FFC107);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 18px;
+  filter: blur(4px);
+}
+
+.category-card-container:hover::before {
+  opacity: 0.6;
+}
+
+/* Remove heavy after pseudo-element */
+.category-card-container::after {
+  display: none;
+}
+
+.category-card-container img {
+  border-radius: 16px;
+  transform: scale(1);
+  transition: transform 0.4s ease;
+  filter: brightness(0.9);
+}
+
+.category-card-container:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* Desktop optimization */
+@media (min-width: 1024px) {
+  .category-card-container:hover img {
+    transform: scale(1.1);
+  }
+}
+
+.category-badge {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.12), rgba(0, 188, 212, 0.12));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.category-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transition: left 0.4s ease;
+}
+
+.category-badge:hover::before {
+  left: 100%;
+}
+
+.category-badge:hover {
+  background: linear-gradient(135deg, rgba(233, 30, 99, 0.25), rgba(0, 188, 212, 0.25));
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 
+    0 6px 16px rgba(233, 30, 99, 0.4),
+    0 0 24px rgba(0, 188, 212, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.item-title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Simplified play icon - removed heavy animations */
+
+.info-container {
+  padding: 12px 16px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.group:hover .info-container {
+  padding-bottom: 20px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(10, 10, 10, 0.85) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(233, 30, 99, 0.4);
+  box-shadow: 0 -4px 16px rgba(233, 30, 99, 0.15), 0 -2px 8px rgba(0, 188, 212, 0.1);
+}
+
+.meta-info {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Shimmer Loading Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.category-card-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Removed badge glow animation for performance */
+
+/* Removed fade in animation */
+
+/* Removed stagger animation for better performance */
+
+/* Removed float animation */
+
+/* Removed float animation for better performance */
+
+/* Removed glow pulse animation */
+
+/* Desktop Optimizations */
+@media (min-width: 1400px) {
+  .category-card-container {
+    border-radius: 18px;
+  }
+  
+  .category-card-container::before,
+  .category-card-container::after {
+    border-radius: 20px;
+  }
+  
+  .category-card-container:hover {
+    transform: translateY(-12px) scale(1.03);
+  }
+  
+  .item-title {
+    font-size: 16px;
+  }
+}
+
+/* Tablet Adjustments */
+@media (max-width: 1400px) {
+  .category-card-container {
+    border-radius: 14px;
+  }
+  
+  .category-card-container::before,
+  .category-card-container::after {
+    border-radius: 16px;
+  }
+  
+  .item-title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 758px) {
+  .category-card-container {
+    border-radius: 12px;
+  }
+  
+  .category-card-container:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .item-title {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .category-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 478px) {
+  .category-card-container {
+    border-radius: 10px;
+  }
+  
+  .category-card-container:hover {
+    transform: translateY(-2px);
+  }
+  
+  .item-title {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  
+  .category-badge {
+    padding: 3px 6px;
+    font-size: 9px;
+    border-radius: 6px;
+  }
+}
+
+/* Dark Mode Enhancements */
+@media (prefers-color-scheme: dark) {
+  .category-card-container {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+  
+  .category-card-container:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Performance Optimization - Desktop Focus */
+@media (min-width: 1024px) {
+  .category-card-container:hover {
+    will-change: transform;
+  }
+  
+  .category-card-container:hover img {
+    will-change: transform;
+  }
+}
+
+/* GPU Acceleration - Only on hover */
+.category-card-container:hover,
+.category-card-container:hover img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Accessibility */
+.category-card-container:focus-within {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.item-title:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .category-card-container,
+  .category-card-container img,
+  .overlay,
+  .info-container,
+  .play-icon,
+  .item-title,
+  .category-badge {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* Neon Glow Text Effect */
+.neon-text {
+  text-shadow: 
+    0 0 10px rgba(233, 30, 99, 0.8),
+    0 0 20px rgba(233, 30, 99, 0.6),
+    0 0 30px rgba(233, 30, 99, 0.4),
+    0 0 40px rgba(240, 98, 146, 0.3);
+}
+
+/* Removed holographic animation */
+
+/* Removed particle animation */
+
+/* 3D Perspective */
+.card-3d-container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Removed scanline effect */
+
+/* Removed rainbow border animation */
+
+/* Removed glitch animation */
+
+/* Removed ripple animation */
+
+/* Removed cyber grid */
+
+/* Removed neon pulse animation */
+
+/* Removed energy wave animation */
+
+/* Removed badge stagger for performance */
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 478px) {
+  .category-card-container:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .category-card-container::before {
+    display: none;
+  }
+  
+  .category-card-container::after {
+    display: none;
+  }
+}
+
+/* High Performance Mode */
+@media (prefers-reduced-motion: no-preference) {
+  .category-card-container {
+    will-change: transform, box-shadow;
+  }
+}
+
+/* Removed border rotate animation */
+
+/* Simplified shimmer - removed heavy mask effects */
+.card-shine {
+  display: none;
+}
+
+/* Removed rainbow spin animation */
+
+/* Removed rainbow pulse animation */
+
+/* Removed border spin animation */
+
+/* Simplified corner glow - no animation */
+.corner-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 40%,
+    rgba(233, 30, 99, 0.15) 70%,
+    rgba(0, 188, 212, 0.1) 100%
+  );
+  opacity: 0;
+  pointer-events: none !important;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.group:hover .corner-glow {
+  opacity: 1;
+}
+
+/* Removed - Too heavy */
+
+/* Removed - Too heavy */
+
+/* Removed - Too heavy */
